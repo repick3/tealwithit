@@ -1,0 +1,19 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block styles -%}
+{{super()}}
+<link href="{{url_for('static', filename='css/base.css')}}" rel="stylesheet">
+{% endblock styles %}
+
+{% block navbar %}
+<div class="navbar">
+  <h1><span>NFLLinks 2016</span></h1>
+  <!-- ... -->
+</div>
+<div class="container">
+{% endblock %}
+{% block content %}
+</div>
+
+{% endblock %}

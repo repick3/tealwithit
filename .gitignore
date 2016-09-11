@@ -91,6 +91,7 @@ ENV/
 
 #resources
 gifs/*
+app/static/bower_components/*
 
 #Sublime 
 *.sublime*

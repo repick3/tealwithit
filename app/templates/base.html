@@ -1,4 +1,10 @@
 {% extends "bootstrap/base.html" %}
+{% block head %}
+	{{super()}}
+	<script type="text/javascript" src={{url_for('static', filename='bower_components/jquery/dist/jquery.js')}}></script>
+
+{% endblock %}
+
 {% block title %}This is an example page{% endblock %}
 
 {% block styles -%}
@@ -6,14 +12,20 @@
 <link href="{{url_for('static', filename='css/base.css')}}" rel="stylesheet">
 {% endblock styles %}
 
+
 {% block navbar %}
 <div class="navbar">
   <h1><span>NFLLinks 2016</span></h1>
   <!-- ... -->
 </div>
+
 <div class="container">
 {% endblock %}
 {% block content %}
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+	<script type="text/javascript" src={{url_for('static', filename='bower_components/clipboard/dist/clipboard.js')}}></script>
 {% endblock %}

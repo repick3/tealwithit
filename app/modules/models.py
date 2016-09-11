@@ -15,7 +15,10 @@ class Posts(BaseModel):
 	nws = BooleanField(default=False)
 	validated = BooleanField(default=False)
 
-
-
 def get_random_post():
-	return Posts.select().order_by(fn.Random()).limit(1)[0]
+	selected_post = (Posts.select()
+		.where(Posts.validated == 1)
+		.order_by(fn.Random())
+		.limit(1)[0]
+	)
+	return selected_post

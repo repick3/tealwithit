@@ -12,6 +12,6 @@ def hello_world():
 def random_teal():
     return(
         render_template('/random.html',
-        post=models.get_random_post()
+            post=models.get_random_post()
         )
     )

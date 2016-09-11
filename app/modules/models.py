@@ -22,3 +22,7 @@ def get_random_post():
 		.limit(1)[0]
 	)
 	return selected_post
+
+def check_for_post(gfy_url):
+	query = Posts.get(Posts.url == gfy_url)
+	return query

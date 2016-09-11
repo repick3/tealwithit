@@ -1,10 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>{{post.title}}</h2>
-  <div style='position:relative;padding-bottom:57%'><iframe src='{{post.url}}' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen style="background-color:red"></iframe></div>
+  <h2 id="post_title">{{post.title}}</h2>  
+  <div style='position:relative;padding-bottom:57%'><iframe src='https://gfycat.com/{{post.url}}' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen style="background-color:red"></iframe></div>
 
   <a href="/random/"><button class="btn btn-primary btn-lg btn-block">TEAL ME!</button></a>
+    <form>
+    <div class="input-group">
+       <input type="text" class="form-control"
+           value="{{build_tealwithit_link(post.url)}}" 
+           readonly placeholder="{{build_tealwithit_link(post.url)}}" id="copy-input">
+       <span class="input-group-btn">
+         <button class="btn btn-default copy-btn" type="button"
+             data-toggle="tooltip" data-placement="button"
+             data-clipboard-target="#copy-input"
+             title="Copy to Clipboard">
+           Copy Static Link
+         </button>
+       </span>
+     </div>
+  </form>
 
-  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      new Clipboard('.copy-btn');
+    })
+  </script>
 {% endblock %}
+
+{% macro build_tealwithit_link(gfy_url) %}
+  http://tealwith.it/teal/{{gfy_url}}/
+{% endmacro %}

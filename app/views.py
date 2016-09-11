@@ -11,7 +11,7 @@ def hello_world():
 @app.route('/random/')
 def random_teal():
     return(
-        render_template('/random.html',
+        render_template('/post.html',
             post=models.get_random_post()
         )
     )
